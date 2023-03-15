@@ -1,6 +1,6 @@
 import { Cell } from "./Cell";
 import { Colors } from "./Colors";
-import { Queen } from "./figures/Quenn";
+import { Pawn } from "./figures/Paws";
 
 export class Board {
   cells: Cell[][] = [];
@@ -20,10 +20,32 @@ export class Board {
   }
 
   public getCell(x: number, y: number) {
-    return this.cells[y][x];
+    return this.cells[x][y];
   }
 
+  private addPawns() {
+    for (let i = 0; i < 8; i++) {
+      new Pawn(Colors.BLACK, this.getCell(i, 1));
+      new Pawn(Colors.WHITE, this.getCell(i, 6));
+    }
+  }
+
+  private addBishops() {}
+
+  private addKings() {}
+
+  private addQueens() {}
+
+  private addRooks() {}
+
+  private addKnights() {}
+
   public addFigures() {
-    new Queen(Colors.WHITE, this.getCell(3, 3));
+    this.addBishops();
+    this.addKings();
+    this.addPawns();
+    this.addQueens();
+    this.addRooks();
+    this.addKnights();
   }
 }
