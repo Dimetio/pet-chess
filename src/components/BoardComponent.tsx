@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Board } from "../models/Board";
 import { Cell } from "../models/Cell";
 import CellComponent from "./CellComponent";
@@ -41,7 +41,7 @@ export default function BoardComponent({ board, setBoard }: BoardProps) {
   return (
     <div className="board">
       {board.cells.map((row, index) => (
-        <div key={index}>
+        <React.Fragment key={index}>
           {row.map((cell) => (
             <CellComponent
               click={click}
@@ -52,7 +52,7 @@ export default function BoardComponent({ board, setBoard }: BoardProps) {
               }
             />
           ))}
-        </div>
+        </React.Fragment>
       ))}
     </div>
   );
