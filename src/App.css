@@ -19,6 +19,12 @@
   border: 5px solid #000;
 }
 
+.cell img {
+  position: relative;
+  width: 48px;
+  height: 48px;
+}
+
 .cell {
   width: 64px;
   height: 64px;
@@ -32,5 +38,5 @@
 }
 
 .white {
-  background-color: #fff;
+  background-color: #b58863;
 }
