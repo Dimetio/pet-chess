@@ -44,3 +44,10 @@
 .selected {
   background-color: brown;
 }
+
+.available {
+  width: 64px;
+  height: 64px;
+  background-color: #22c022;
+  opacity: .5;
+}
