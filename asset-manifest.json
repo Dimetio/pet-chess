@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/pet-chess/static/css/main.f7d67ae3.css",
+    "main.js": "/pet-chess/static/js/main.2cdc4444.js",
+    "static/js/787.497f1025.chunk.js": "/pet-chess/static/js/787.497f1025.chunk.js",
+    "static/media/white-queen.png": "/pet-chess/static/media/white-queen.c106f144d9ee8637256f.png",
+    "index.html": "/pet-chess/index.html",
+    "main.f7d67ae3.css.map": "/pet-chess/static/css/main.f7d67ae3.css.map",
+    "main.2cdc4444.js.map": "/pet-chess/static/js/main.2cdc4444.js.map",
+    "787.497f1025.chunk.js.map": "/pet-chess/static/js/787.497f1025.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f7d67ae3.css",
+    "static/js/main.2cdc4444.js"
+  ]
+}
