@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import BoardComponent from "./components/BoardComponent";
+import LostFigures from "./components/LostFigures";
+import Timer from "./components/Timer";
 import { Board } from "./models/Board";
 import { Colors } from "./models/Colors";
 import { Player } from "./models/Player";
@@ -13,13 +15,13 @@ function App() {
 
   useEffect(() => {
     restart();
-    setCurrentPlayer(whitePlayer);
   }, []);
 
   function restart() {
     const newBoard = new Board();
     newBoard.initCells();
     newBoard.addFigures();
+    setCurrentPlayer(whitePlayer);
     setBoard(newBoard);
   }
 
@@ -31,12 +33,21 @@ function App() {
 
   return (
     <div className="app">
+      <Timer restart={restart} currentPlayer={currentPlayer} />
+
       <BoardComponent
         board={board}
         setBoard={setBoard}
         swapPlayer={swapPlayer}
         currentPlayer={currentPlayer}
       />
+      <div>
+        <LostFigures title={"черные фигуры"} figures={board.lostBlackFigures} />
+      </div>
+
+      <div>
+        <LostFigures title={"белые фигуры"} figures={board.lostWhiteFigures} />
+      </div>
     </div>
   );
 }
