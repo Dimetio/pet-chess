@@ -11,6 +11,7 @@ function App() {
   const [whitePlayer, setWhitePlayer] = useState(new Player(Colors.WHITE));
   const [blackPlayer, setBlackPlayer] = useState(new Player(Colors.BLACK));
   const [currentPlayer, setCurrentPlayer] = useState<Player | null>(null);
+  const [isStart, setIsStart] = useState<boolean>(false);
 
   useEffect(() => {
     restart();
@@ -34,13 +35,20 @@ function App() {
     <div className="app">
       <div className="wrapper">
         <BoardComponent
+          isStart={isStart}
           board={board}
           setBoard={setBoard}
           swapPlayer={swapPlayer}
           currentPlayer={currentPlayer}
         />
 
-        <Info board={board} restart={restart} currentPlayer={currentPlayer} />
+        <Info
+          isStart={isStart}
+          setIsStart={setIsStart}
+          board={board}
+          restart={restart}
+          currentPlayer={currentPlayer}
+        />
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { Colors } from "../../models/Colors";
 import { Player } from "../../models/Player";
 import blackKing from "../../assets/black-king.png";
@@ -7,11 +7,17 @@ import whiteKing from "../../assets/white-king.png";
 import styles from "./timer.module.css";
 
 interface TimerProps {
+  isStart: boolean;
+  setIsStart: Dispatch<SetStateAction<boolean>>;
   currentPlayer: Player | null;
   restart: () => void;
 }
-const Timer = ({ currentPlayer, restart }: TimerProps) => {
-  const [isStart, setIsStart] = useState<boolean>(false);
+export default function Timer({
+  isStart,
+  setIsStart,
+  currentPlayer,
+  restart,
+}: TimerProps) {
   const [buttonText, setButtonText] = useState<string>("Старт");
   const [blackTime, setBlackTime] = useState<number>(300);
   const [whiteTime, setwhiteTime] = useState<number>(300);
@@ -96,6 +102,4 @@ const Timer = ({ currentPlayer, restart }: TimerProps) => {
       </div>
     </div>
   );
-};
-
-export default Timer;
+}

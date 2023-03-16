@@ -7,6 +7,7 @@ import CellComponent from "../cell/cell";
 import styles from "./board.module.css";
 
 interface BoardProps {
+  isStart: boolean;
   board: Board;
   setBoard: (board: Board) => void;
   currentPlayer: Player | null;
@@ -14,6 +15,7 @@ interface BoardProps {
 }
 
 export default function BoardComponent({
+  isStart,
   board,
   setBoard,
   currentPlayer,
@@ -22,18 +24,20 @@ export default function BoardComponent({
   const [selectedCell, setSelectedCell] = useState<Cell | null>(null);
 
   function click(cell: Cell) {
-    if (
-      selectedCell &&
-      selectedCell !== cell &&
-      selectedCell.figure?.canMove(cell)
-    ) {
-      selectedCell.moveFigure(cell);
-      swapPlayer(); // переключает игрока
-      setSelectedCell(null);
-    } else {
-      // нельзя выделать чужие фигуры
-      if (cell.figure?.color === currentPlayer?.color) {
-        setSelectedCell(cell);
+    if (isStart) {
+      if (
+        selectedCell &&
+        selectedCell !== cell &&
+        selectedCell.figure?.canMove(cell)
+      ) {
+        selectedCell.moveFigure(cell);
+        swapPlayer(); // переключает игрока
+        setSelectedCell(null);
+      } else {
+        // нельзя выделать чужие фигуры
+        if (cell.figure?.color === currentPlayer?.color) {
+          setSelectedCell(cell);
+        }
       }
     }
   }
