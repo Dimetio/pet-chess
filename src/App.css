@@ -1,6 +1,11 @@
+:root {
+  font-size: 10px;
+}
+
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .app {
@@ -11,26 +16,9 @@
   align-items: center;
 }
 
-.board {
-  width: calc(64px * 8);
-  height: calc(64px * 8);
+.wrapper {
   display: flex;
-  flex-wrap: wrap;
-  border: 5px solid #000;
-}
-
-.cell img {
-  position: relative;
-  width: 48px;
-  height: 48px;
-}
-
-.cell {
-  width: 64px;
-  height: 64px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 2rem;
 }
 
 .black {
@@ -39,22 +27,4 @@
 
 .white {
   background-color: #f0d9b5;
-}
-
-.selected {
-  background-color: brown;
-}
-
-.available {
-  width: 54px;
-  height: 54px;
-  border: 4px solid #000;
-  opacity: 0.5;
-}
-
-.lost {
-  height: calc(50vw - 60px);
-  padding: 30px;
-  margin-left: 50px;
-  background-color: lightgray;
 }

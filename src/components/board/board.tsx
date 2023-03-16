@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Board } from "../models/Board";
-import { Cell } from "../models/Cell";
-import { Player } from "../models/Player";
-import CellComponent from "./CellComponent";
+import { Board } from "../../models/Board";
+import { Cell } from "../../models/Cell";
+import { Player } from "../../models/Player";
+import CellComponent from "../cell/cell";
+
+import styles from "./board.module.css";
 
 interface BoardProps {
   board: Board;
@@ -51,7 +53,7 @@ export default function BoardComponent({
   }
 
   return (
-    <div className="board">
+    <div className={styles.board}>
       {board.cells.map((row, index) => (
         <React.Fragment key={index}>
           {row.map((cell) => (

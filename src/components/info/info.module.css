@@ -1,0 +1,12 @@
+.info {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  height: 100%;
+}

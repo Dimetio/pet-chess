@@ -1,0 +1,42 @@
+.player-timer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2rem;
+}
+
+.player-timer img {
+  width: 4rem;
+  padding: 0.5rem;
+  border: 0.4rem solid transparent;
+}
+
+.tablo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.current-step {
+  border: 0.4rem solid #000 !important;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+  height: 5rem;
+  border: none;
+  background-color: #b58863;
+  color: #fff;
+  font-size: 2rem;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s;
+}
+
+.button:hover {
+  cursor: pointer;
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.5);
+  background-color: #956742;
+}
