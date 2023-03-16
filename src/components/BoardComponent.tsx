@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Board } from "../models/Board";
 import { Cell } from "../models/Cell";
+import { Player } from "../models/Player";
 import CellComponent from "./CellComponent";
 
 interface BoardProps {
   board: Board;
   setBoard: (board: Board) => void;
+  currentPlayer: Player | null;
+  swapPlayer: () => void;
 }
 
-export default function BoardComponent({ board, setBoard }: BoardProps) {
+export default function BoardComponent({
+  board,
+  setBoard,
+  currentPlayer,
+  swapPlayer,
+}: BoardProps) {
   const [selectedCell, setSelectedCell] = useState<Cell | null>(null);
 
   function click(cell: Cell) {
@@ -18,9 +26,13 @@ export default function BoardComponent({ board, setBoard }: BoardProps) {
       selectedCell.figure?.canMove(cell)
     ) {
       selectedCell.moveFigure(cell);
+      swapPlayer(); // переключает игрока
       setSelectedCell(null);
     } else {
-      setSelectedCell(cell);
+      // нельзя выделать чужие фигуры
+      if (cell.figure?.color === currentPlayer?.color) {
+        setSelectedCell(cell);
+      }
     }
   }
 
